@@ -32,7 +32,7 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "Matteo Peru",
+      "owner": "JackoPeru",
       "repo": "gestione-marmeria"
     },
     "mac": {
