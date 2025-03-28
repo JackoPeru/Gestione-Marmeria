@@ -1,0 +1,243 @@
+/* Stili per il componente di ricerca e filtri */
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-container {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.filter-container {
+    position: relative;
+}
+
+.filter-button {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+    background-color: #e9ecef;
+}
+
+.filter-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 5px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    padding: 15px;
+    min-width: 250px;
+    z-index: 100;
+    display: none;
+}
+
+.filter-dropdown.show {
+    display: block;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.date-filter-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-date {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.reset-filters-button {
+    width: 100%;
+    padding: 8px 0;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.reset-filters-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Stili per i risultati filtrati */
+.filtered-results-info {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.highlight-match {
+    background-color: rgba(255, 230, 0, 0.3);
+    padding: 2px;
+    border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-filter-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .search-container {
+        max-width: 100%;
+    }
+}
+
+/* Stili per i filtri compatti */
+.search-filter-container.compact-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    background-color: #2a2a2a;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.compact-filter .search-box {
+    flex: 2;
+    position: relative;
+    min-width: 250px;
+}
+
+.compact-filter .search-input {
+    width: 100%;
+    padding: 6px 8px;
+    padding-left: 28px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 34px;
+    background-color: #333;
+    color: #fff;
+}
+
+.compact-filter .search-input::placeholder {
+    color: #aaa;
+}
+
+.compact-filter .search-icon {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 14px;
+}
+
+.compact-filter .filters-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex: 1;
+}
+
+.compact-filter .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 0;
+    flex: 1;
+}
+
+.compact-filter .filter-group label {
+    font-size: 12px;
+    color: #ccc;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+.compact-filter .filter-select {
+    padding: 6px 8px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 13px;
+    height: 34px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .compact-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .compact-filter .filters-container {
+        width: 100%;
+    }
+}

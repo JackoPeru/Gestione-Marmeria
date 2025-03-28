@@ -1,0 +1,53 @@
+{
+  "name": "gestione-marmeria",
+  "version": "1.0.0",
+  "description": "Applicazione per la gestione di una marmeria",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "set NODE_ENV=development && electron .",
+    "build": "electron-builder build --win",
+    "release": "electron-builder build --win --publish always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JackoPeru/Gestione-Marmeria"
+  },
+  "build": {
+    "appId": "com.tuodominio.gestionemarmeria",
+    "productName": "Gestione Marmeria",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "Matteo Peru",
+      "repo": "gestione-marmeria"
+    },
+    "mac": {
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
+    },
+    "afterSign": null,
+    "fileAssociations": []
+  },
+  "author": "Matteo Peru",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^25.9.8",
+    "electron-builder": "^24.13.3",
+    "electron-updater": "^6.6.2"
+  }
+}
