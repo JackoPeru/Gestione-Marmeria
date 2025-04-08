@@ -1,0 +1,627 @@
+/* Stili generali per la dashboard */
+.dashboard-container {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dashboard-main-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Stili per le statistiche */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.stat-icon {
+    font-size: 24px;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.stat-card.highlight {
+    background-color: #3498db;
+}
+
+.stat-card.highlight .stat-icon,
+.stat-card.highlight .stat-value,
+.stat-card.highlight .stat-label {
+    color: white;
+}
+
+/* Stili per le anteprime */
+.previews-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.preview-card {
+    flex: 1;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 0; /* Permette il troncamento del testo */
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 16px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+}
+
+.card-header h2 i {
+    margin-right: 8px;
+    color: #3498db;
+}
+
+.card-content {
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.preview-item {
+    padding: 12px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.preview-item:last-child {
+    border-bottom: none;
+}
+
+.item-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.item-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.item-details span {
+    display: flex;
+    align-items: center;
+}
+
+.item-details i {
+    margin-right: 5px;
+}
+
+.empty-list {
+    padding: 20px;
+    text-align: center;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Stili per gli appunti */
+.notes-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.notes-container {
+    display: flex;
+    padding: 15px;
+    gap: 20px;
+}
+
+.notes-list {
+    flex: 2;
+    max-height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notes-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notes-form textarea {
+    min-height: 100px;
+    resize: vertical;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+}
+
+.note-item {
+    background-color: #f8f9fa;
+    border-left: 3px solid #3498db;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.note-content {
+    margin-bottom: 8px;
+    white-space: pre-line;
+    font-size: 14px;
+}
+
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #95a5a6;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.btn-icon:hover {
+    background-color: #f1f1f1;
+    color: #e74c3c;
+}
+
+/* Stili per i grafici */
+.charts-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.chart-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.chart-content {
+    padding: 15px;
+    height: 300px;
+}
+
+.chart-card.wide {
+    grid-column: span 2;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .previews-container {
+        flex-direction: column;
+    }
+    
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-card.wide {
+        grid-column: span 1;
+    }
+    
+    .notes-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Stile per elementi cliccabili */
+.clickable {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.clickable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.clickable:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-complete {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-complete:hover {
+    background-color: #45a049;
+}
+
+.list-item-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Stili per le sezioni della dashboard con bordi ben definiti */
+.dashboard-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.section-header {
+    background-color: #f5f5f5;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+}
+
+.section-header i {
+    margin-right: 8px;
+    color: #3498db;
+}
+
+.section-content {
+    padding: 15px;
+}
+
+/* Stili per la lista degli appunti */
+.note-item {
+    background-color: #f9f9f9;
+    border-left: 3px solid #3498db;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-content {
+    margin-bottom: 8px;
+    white-space: pre-line;
+}
+
+.note-date {
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.delete-note {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+.delete-note:hover {
+    opacity: 1;
+}
+
+.note-form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-form textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.note-form button {
+    align-self: flex-end;
+}
+
+/* Stili per la lista dei progetti in scadenza */
+.dashboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard-list-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.dashboard-list-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Stili per la navigazione dei progetti */
+.progetti-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    padding: 5px 0;
+}
+
+.nav-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: 0 5px;
+}
+
+.nav-button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+.nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#progetti-counter {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Make sure the list items have proper styling */
+.dashboard-list {
+    /* Stile per la lista delle fatture */
+    .fatture-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .fatture-list .dashboard-list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+        margin-bottom: 8px;
+        background-color: #fff;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        transition: all 0.2s ease;
+    }
+    
+    .fatture-list .dashboard-list-item:hover {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        transform: translateY(-2px);
+    }
+    
+    .fatture-list .list-item-amount {
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    
+    .btn-pay {
+        background-color: var(--success-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        margin-left: 5px;
+        transition: all 0.2s ease;
+    }
+    
+    .btn-pay:hover {
+        transform: scale(1.1);
+        background-color: #0ca678;
+    }
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.dashboard-list-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.nav-button i {
+    font-size: 12px;
+    color: #333;
+}
+
+/* Stili per lo scorrimento verticale dei progetti */
+.progetti-scadenza-wrapper {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Stili per lo scorrimento verticale degli appunti */
+.notes-list-wrapper {
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 5px;
+    margin-bottom: 15px;
+}
+
+/* Stile per le note */
+.note-item {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 10px;
+    position: relative;
+    border-left: 3px solid #3498db;
+}
+
+.note-content {
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+
+.note-date {
+    font-size: 12px;
+    color: #777;
+}
+
+.delete-note {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.delete-note:hover {
+    opacity: 1;
+}
+
+/* Stile per la scrollbar (sia per progetti che per appunti) */
+.progetti-scadenza-wrapper::-webkit-scrollbar,
+.notes-list-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.progetti-scadenza-wrapper::-webkit-scrollbar-track,
+.notes-list-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.progetti-scadenza-wrapper::-webkit-scrollbar-thumb,
+.notes-list-wrapper::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.progetti-scadenza-wrapper::-webkit-scrollbar-thumb:hover,
+.notes-list-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Stile per il form delle note */
+.note-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#new-note {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#add-note {
+    align-self: flex-end;
+    padding: 8px 16px;
+}
+
+/* Add this to your dashboard.css file if it's not already there */
+.stat-card.clickable {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card.clickable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Marmeria</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- I restanti CSS (es. styles.css) vengono caricati qui se presenti -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Rimuovi gli script da qui; verranno inseriti alla fine del body -->
+    <!-- Aggiungi questa riga nell'head del documento HTML -->
+    <link rel="stylesheet" href="css/filters.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>Gestione Marmeria</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-view="dashboard">
+                        <i class="icon">📊</i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-view="clienti">
+                        <i class="icon">👥</i> Clienti
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-view="progetti">
+                        <i class="icon">🏗️</i> Progetti
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-view="materiali">
+                        <i class="icon">🧱</i> Materiali
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-view="preventivi">
+                        <i class="icon">📝</i> Preventivi
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-view="fatture">
+                        <i class="icon">📄</i> Fatture
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-view="impostazioni">
+                        <i class="icon">⚙️</i> Impostazioni
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Il contenitore principale per il contenuto -->
+        <div class="main-content">
+            <div id="content">
+                <!-- Le view vanno inserite come elementi fratelli, non annidati -->
+                <div id="view-dashboard" class="view">
+                    <div class="view-header">
+                        <h1>Dashboard</h1>
+                    </div>
+                    <div class="view-content">
+                        <!-- Il contenuto verrà generato dinamicamente da renderDashboard() -->
+                    </div>
+                </div>
+                <div id="view-clienti" class="view" style="display: none;">
+                    <!-- Il contenuto verrà generato dinamicamente da renderClienti() -->
+                </div>
+                <div id="view-progetti" class="view" style="display: none;">
+                    <!-- Contenuto della sezione progetti -->
+                    <div class="view-header">
+                        <h1>Progetti</h1>
+                        <button id="btn-add-progetto" class="btn-primary">Nuovo Progetto</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="app-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Cliente</th>
+                                    <th>Data Inizio</th>
+                                    <th>Stato</th>
+                                    <th>Azioni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="progetti-list">
+                                <!-- I progetti verranno caricati qui -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="view-materiali" class="view" style="display: none;">
+                    <!-- Contenuto della sezione materiali -->
+                    <div class="view-header">
+                        <h1>Materiali</h1>
+                        <button id="btn-add-materiale" class="btn-primary">Nuovo Materiale</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Tipo</th>
+                                    <th>Prezzo Unitario</th>
+                                    <th>Quantità</th>
+                                    <th>Spessore</th>
+                                    <th>Azioni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="materiali-list">
+                                <!-- I materiali verranno inseriti qui -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="view-preventivi" class="view" style="display: none;">
+                    <!-- Contenuto della sezione preventivi -->
+                    <div class="view-header">
+                        <h1>Preventivi</h1>
+                        <button id="btn-add-preventivo" class="btn-primary">Nuovo Preventivo</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="app-table">
+                            <thead>
+                                <tr>
+                                    <th>Numero</th>
+                                    <th>Cliente</th>
+                                    <th>Data</th>
+                                    <th>Importo</th>
+                                    <th>Stato</th>
+                                    <th>Azioni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="preventivi-list">
+                                <!-- I preventivi verranno caricati qui -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="view-fatture" class="view" style="display: none;">
+                    <!-- Contenuto della sezione fatture -->
+                    <div class="view-header">
+                        <h1>Fatture</h1>
+                        <button id="btn-add-fattura" class="btn-primary">Nuova Fattura</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="app-table">
+                            <thead>
+                                <tr>
+                                    <th>Numero</th>
+                                    <th>Cliente</th>
+                                    <th>Data</th>
+                                    <th>Importo</th>
+                                    <th>Pagata</th>
+                                    <th>Azioni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fatture-list">
+                                <!-- Le fatture verranno caricati qui -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="view-impostazioni" class="view" style="display: none;">
+                    <!-- Contenuto della sezione impostazioni -->
+                    <div class="view-header">
+                        <h1>Impostazioni</h1>
+                    </div>
+                    <div id="settings-container" class="settings-container">
+                        <!-- Il contenuto verrà generato dinamicamente da renderImpostazioni() -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- I modali e le notifiche verranno aggiunti dinamicamente -->
+    <script src="js/utils.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/modals.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/clienti.js"></script>
+    <script src="js/progetti.js"></script>
+    <script src="js/materiali.js"></script>
+    <script src="js/documenti.js"></script>
+    <script src="js/preventivi.js"></script>
+    <script src="js/fatture.js"></script>
+    <script src="js/impostazioni.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/filters.js"></script>
+    
+</body>
+</html>
+
+<!-- Notifica per gli aggiornamenti -->
+<div id="update-notification" style="display: none; position: fixed; bottom: 20px; right: 20px; background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000;">
+    <div id="update-message"></div>
+    <button id="restart-button" style="display: none; margin-top: 10px; padding: 5px 10px;">Riavvia per aggiornare</button>
+    <button id="close-update-button" style="margin-top: 10px; padding: 5px 10px;">Chiudi</button>
+</div>
+
+<!-- Script per gli aggiornamenti Electron -->
+<script>
+// Controlla se siamo in Electron
+const isElectronApp = () => {
+    return window && window.process && window.process.type;
+};
+
+// Se siamo in Electron, aggiungi il supporto per gli aggiornamenti
+if (isElectronApp()) {
+    const { ipcRenderer } = require('electron');
+    
+    // Gestione degli aggiornamenti
+    ipcRenderer.on('update_available', () => {
+        const notification = document.getElementById('update-notification');
+        const message = document.getElementById('update-message');
+        const closeButton = document.getElementById('close-update-button');
+        
+        message.innerText = 'È disponibile un nuovo aggiornamento. Verrà scaricato in background.';
+        notification.style.display = 'block';
+        
+        closeButton.addEventListener('click', () => {
+            notification.style.display = 'none';
+        });
+    });
+    
+    ipcRenderer.on('update_downloaded', () => {
+        const notification = document.getElementById('update-notification');
+        const message = document.getElementById('update-message');
+        const restartButton = document.getElementById('restart-button');
+        const closeButton = document.getElementById('close-update-button');
+        
+        message.innerText = 'Aggiornamento scaricato. Riavvia l\'applicazione per installarlo.';
+        restartButton.style.display = 'inline-block';
+        notification.style.display = 'block';
+        
+        restartButton.addEventListener('click', () => {
+            ipcRenderer.send('restart_app');
+        });
+        
+        closeButton.addEventListener('click', () => {
+            notification.style.display = 'none';
+        });
+    });
+}
+</script>

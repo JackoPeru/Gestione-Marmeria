@@ -1,0 +1,170 @@
+/* Modifica per evitare conflitti */
+.auth-form {
+    display: none !important;
+}
+
+/* Solo nella pagina di login */
+body.login-page .auth-form.active {
+    display: block !important;
+}
+
+/* Assicurarsi che gli elementi di autenticazione non appaiano nella dashboard */
+body:not(.login-page) .auth-container,
+body:not(.login-page) .auth-card,
+body:not(.login-page) .auth-form {
+    display: none !important;
+}
+
+/* Stili per i modal container e contenuto - versione migliorata */
+.modal-container {
+    position: fixed !important;
+    z-index: 1050 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: auto !important;
+}
+
+.modal-container .modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1051 !important;
+    display: none !important;
+    pointer-events: auto !important;
+}
+
+.modal-container .modal.active {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.modal-container .modal-content {
+    background-color: white !important;
+    padding: 25px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    max-width: 80% !important;
+    max-height: 80% !important;
+    overflow-y: auto !important;
+    z-index: 1052 !important;
+    position: relative !important;
+    margin: auto !important;
+    width: auto !important;
+    min-width: 300px !important;
+}
+
+.modal-container .modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    z-index: 1049 !important;
+    display: none !important;
+    pointer-events: auto !important;
+}
+
+.modal-container .modal-overlay.active {
+    display: block !important;
+}
+
+/* Stili per i modal */
+.modal {
+    display: none;
+    position: fixed !important;
+    z-index: 1000 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: auto !important;
+}
+
+.modal-content {
+    background-color: white !important;
+    margin: auto !important;
+    padding: 25px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    max-width: 80% !important;
+    max-height: 80% !important;
+    overflow-y: auto !important;
+    position: relative !important;
+    width: auto !important;
+    min-width: 300px !important;
+}
+
+/* Stili per i dettagli del progetto */
+.project-details {
+    padding: 20px;
+}
+
+.project-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.project-body {
+    margin-bottom: 20px;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Stili per i pulsanti nel modal */
+.modal-content .btn,
+.project-actions .btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content .btn-primary,
+.project-actions .btn-primary {
+    background-color: var(--primary-color, #3b82f6);
+    color: white;
+    border: 1px solid var(--primary-color, #3b82f6);
+}
+
+.modal-content .btn-primary:hover,
+.project-actions .btn-primary:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+.modal-content .btn-cancel,
+.project-actions .btn-cancel {
+    background-color: #e5e7eb;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+}
+
+.modal-content .btn-cancel:hover,
+.project-actions .btn-cancel:hover {
+    background-color: #d1d5db;
+    border-color: #9ca3af;
+}
